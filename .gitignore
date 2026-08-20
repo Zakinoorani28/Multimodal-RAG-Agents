@@ -1,0 +1,28 @@
+# Environment & Credentials
+.env
+
+# Python Bytecode & Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Vector Store & Extracted Artifacts
+chroma_db/
+data/figures/
+outputs/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# System & IDE
+.DS_Store
+.idea/
+.vscode/
+*.log
