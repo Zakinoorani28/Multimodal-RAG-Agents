@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "query": "What BLEU score did the big Transformer achieve on WMT 2014 English-German translation task?",
+    "expected_modality": "table",
+    "answer": "Based on the provided context, the big Transformer model (**Transformer (big)**) achieved a BLEU score of **28.4** on the WMT 2014 English-to-German translation task [Source 1, Source 2]. \n\nThis established a new state-of-the-art BLEU score, outperforming previously reported models and ensembles by more than 2.0 BLEU [Source 1, Source 2].",
+    "sources_used": 5,
+    "source_types": [
+      "text"
+    ],
+    "pages_referenced": [
+      "1",
+      "10",
+      "8"
+    ],
+    "retrieved_context_preview": "[Source 1 | Type: text | Page: 1 | Relevance: 0.8324]\nshow these models to\nbe superior in quality while being more parallelizable and requiring significantly\nless time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-\nto-German translation task, improving over the existing best results, including\nensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,\nour model establishes a new single-model state-of-the-art BLEU score of 41.8 after\ntraining for 3.5 days on eight GPUs, a small fraction of the training costs of the\nbest models from the literature. We show that the Transformer generalizes well to\nother tasks by\n\n---\n\n[Source 2 | Type: text | Page: 8 | Relevance: 0.8282]\noyed label smoothing of value ϵls = 0.1 [36]. This\nhurts perplexity, as the model lear..."
+  },
+  {
+    "id": 2,
+    "query": "Describe the encoder and decoder architecture shown in Figure 1. What are the main components?",
+    "expected_modality": "figure",
+    "answer": "Generation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 42.92454826s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.6-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 42\n}\n]",
+    "sources_used": 5,
+    "source_types": [
+      "text"
+    ],
+    "pages_referenced": [
+      "2",
+      "3",
+      "5"
+    ],
+    "retrieved_context_preview": "[Source 1 | Type: text | Page: 3 | Relevance: 0.7796]\nFigure 1: The Transformer - model architecture.\nThe Transformer follows this overall architecture using stacked self-attention and point-wise, fully\nconnected layers for both the encoder and decoder, shown in the left and right halves of Figure 1,\nrespectively.\n3.1\nEncoder and Decoder Stacks\nEncoder:\nThe encoder is composed of a stack of N = 6 identical layers. Each layer has two\nsub-layers. The first is a multi-head self-attention mechanism, and the second is a simple, position-\nwise fully connected feed-forward network. We employ a residual connection [11] around each of\nthe two sub-layers,\n\n---\n\n[Source 2 | Type: text | Page: 5 | Relevance: 0.724]\ne output of the encoder. This allows every\nposition in the decoder to attend over all p..."
+  },
+  {
+    "id": 3,
+    "query": "What is multi-head attention? How many heads were used and what dimensions were used for each head?",
+    "expected_modality": "text",
+    "answer": "Generation failed: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 8.994238391s. [links {\n  description: \"Learn more about Gemini API quotas\"\n  url: \"https://ai.google.dev/gemini-api/docs/rate-limits\"\n}\n, violations {\n  quota_metric: \"generativelanguage.googleapis.com/generate_content_free_tier_requests\"\n  quota_id: \"GenerateRequestsPerDayPerProjectPerModel-FreeTier\"\n  quota_dimensions {\n    key: \"model\"\n    value: \"gemini-3.6-flash\"\n  }\n  quota_dimensions {\n    key: \"location\"\n    value: \"global\"\n  }\n  quota_value: 20\n}\n, retry_delay {\n  seconds: 8\n}\n]",
+    "sources_used": 5,
+    "source_types": [
+      "text"
+    ],
+    "pages_referenced": [
+      "4",
+      "5",
+      "9"
+    ],
+    "retrieved_context_preview": "[Source 1 | Type: text | Page: 5 | Relevance: 0.8053]\noutput values. These are concatenated and once again projected, resulting in the final values, as\ndepicted in Figure 2.\nMulti-head attention allows the model to jointly attend to information from different representation\nsubspaces at different positions. With a single attention head, averaging inhibits this.\nMultiHead(Q, K, V ) = Concat(head1, ..., headh)W O\nwhere headi = Attention(QW Q\ni , KW K\ni , V W V\ni )\nWhere the projections are parameter matrices W Q\ni\n∈Rdmodel×dk, W K\ni\n∈Rdmodel×dk, W V\ni\n∈Rdmodel×dv\nand W O ∈Rhdv×dmodel.\nIn this work we employ h = 8 parallel attention layers, or heads\n\n---\n\n[Source 2 | Type: text | Page: 5 | Relevance: 0.7887]\nO ∈Rhdv×dmodel.\nIn this work we employ h = 8 parallel attention layers, or heads. For..."
+  }
+]
