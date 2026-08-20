@@ -41,6 +41,11 @@ for item in QUERIES:
     chunks = retrieve_multimodal(item["query"], n_results=5)
     result = generate_answer(item["query"], chunks["all"])
 
+    while "Generation failed" in result["answer"] or "429" in result["answer"]:
+        print("Quota limit encountered. Pausing 25s before retrying query...")
+        time.sleep(25)
+        result = generate_answer(item["query"], chunks["all"])
+
     output = {
         "id": item["id"],
         "query": result["query"],
@@ -56,7 +61,7 @@ for item in QUERIES:
     print(f"Answer preview: {result['answer'][:200]}...")
     print(f"Sources: {result['source_types']} | Pages: {result['pages_referenced']}")
 
-    time.sleep(2)
+    time.sleep(12)
 
 out_path = "outputs/sample_outputs.json"
 with open(out_path, "w", encoding="utf-8") as f:

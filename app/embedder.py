@@ -51,7 +51,7 @@ rate_limiter = RateLimiter()
 def describe_images(images: list) -> list:
     """Uses Gemini 2.5 Flash Vision to generate detailed text descriptions of paper figures."""
     primary_model_name = "gemini-2.5-flash"
-    fallback_model_name = "gemini-3.6-flash"
+    fallback_model_name = "gemini-flash-latest"
 
     try:
         model = genai.GenerativeModel(primary_model_name)

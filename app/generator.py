@@ -63,7 +63,7 @@ Provide a thorough, accurate answer grounded in the context above:"""
 
     rate_limiter.wait_if_needed()
     primary_model_name = "gemini-2.5-flash"
-    fallback_model_name = "gemini-3.6-flash"
+    fallback_model_name = "gemini-flash-latest"
 
     try:
         model = genai.GenerativeModel(primary_model_name)
@@ -78,18 +78,8 @@ Provide a thorough, accurate answer grounded in the context above:"""
                 response = fallback_model.generate_content(prompt)
                 answer = response.text
             except Exception as e2:
-                err2_str = str(e2)
-                if "429" in err2_str or "quota" in err2_str.lower():
-                    print("Rate limit 429 hit. Sleeping 15 seconds before retrying...")
-                    time.sleep(15)
-                    try:
-                        response = fallback_model.generate_content(prompt)
-                        answer = response.text
-                    except Exception as e3:
-                        answer = f"Generation failed: {str(e3)}"
-                else:
-                    logger.error(f"Generation error: {e2}")
-                    answer = f"Generation failed: {str(e2)}"
+                logger.error(f"Generation error: {e2}")
+                answer = f"Generation failed: {str(e2)}"
         elif "429" in err_str or "quota" in err_str.lower() or "resourceexhausted" in err_str.lower():
             print(f"Rate limit 429 hit for {primary_model_name}. Sleeping 15 seconds before retrying...")
             time.sleep(15)
